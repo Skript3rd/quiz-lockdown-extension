@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Quiz Lockdown Helper",
+  "version": "1.0",
+  "description": "Forces full-screen mode and closes the tab on violations.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/forms/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
