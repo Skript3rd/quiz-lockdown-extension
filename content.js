@@ -4,7 +4,7 @@ let strikeCount = 0;
 const maxStrikes = 3;
 let isNavigating = false;
 
-// Detect clicks on buttons (like "Next", "Back", "Submit") to create a 1.5-second grace period
+// Detect clicks on buttons 
 document.addEventListener("click", (event) => {
   const button = event.target.closest('div[role="button"], button');
   if (button) {
@@ -25,11 +25,11 @@ function triggerViolation(reason) {
   strikeCount++;
 
   if (strikeCount < maxStrikes) {
-    // Warnings for Strike 1 and 2: Show the overlay again so they can click back into fullscreen
+    // Warnings for Strike 1 and 2
     alert(`⚠️ WARNING ${strikeCount}/${maxStrikes}: ${reason}\nYou must return to full-screen mode to continue.`);
     createFullscreenOverlay(`Warning ${strikeCount}/${maxStrikes}: Exited Fullscreen`, "Return to Fullscreen");
   } else {
-    // Final Strike (Strike 3)
+    // Final Strike
     alert(`❌ STRIKE ${maxStrikes}/${maxStrikes}: ${reason}\nMaximum violations reached. Submitting quiz now.`);
 
     const submitButton = document.querySelector('div[role="button"] span');
